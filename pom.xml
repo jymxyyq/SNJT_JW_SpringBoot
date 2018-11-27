@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yonyou.ny.yht</groupId>
+    <artifactId>yht-test</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>yht-test</name>
+    <description>Demo project for Spring Boot</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.0.RELEASE</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
+
+    <modules>
+        <!-- 第三方登陆方式，选择性集成 -->
+        <module>optional</module>
+        <!-- 完全集成模式 -->
+        <module>full</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>SNJT</id>
+            <name>SNJT Repository</name>
+            <url>http://10.0.17.6:8081/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- 友互通SDK -->
+        <dependency>
+            <groupId>com.yonyou.yht</groupId>
+            <artifactId>yht-sdk</artifactId>
+            <version>0.4.1-SNAPSHOT</version>
+        </dependency>
+        <!-- 友互通缓存组件 -->
+        <dependency>
+            <groupId>com.yonyou.yht</groupId>
+            <artifactId>yht-sso-cache</artifactId>
+            <version>0.4.2-SNAPSHOT</version>
+        </dependency>
+        <!-- 友互通单点登录 -->
+        <dependency>
+            <groupId>com.yonyou.yht</groupId>
+            <artifactId>yht-sso-client</artifactId>
+            <version>0.4.2-SNAPSHOT</version>
+        </dependency>
+        <!-- 友互通租户SDK -->
+        <dependency>
+            <groupId>com.yonyou.iuap</groupId>
+            <artifactId>iuap-tenant-sdk-exclusive</artifactId>
+            <version>0.4.2-RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-nop</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
